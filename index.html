@@ -463,14 +463,14 @@
 
   const COLORS = ['#f9e04a','#ff9ff3','#54a0ff','#7ed6df','#ff6b81','#ffd32a','#0fbcf9','#aaa1ff'];
   const pieces = [];
-  const COUNT  = 80;
+  const COUNT  = 40;
 
   for (let i = 0; i < COUNT; i++) {
     pieces.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height * 0.4 - canvas.height * 0.2,
-      w: Math.random() * 9 + 5,
-      h: Math.random() * 5 + 3,
+      w: Math.random() * 5 + 3,
+      h: Math.random() * 3 + 2,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
       angle: Math.random() * Math.PI * 2,
       spin:  (Math.random() - 0.5) * 0.15,
