@@ -6,13 +6,13 @@
   <title>제 1회 피부텐텐 피부콘서트</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Gowun Dodum', sans-serif;
-      background: #ede8f5;
+      background: #3d2f6a;
       display: flex;
       justify-content: center;
     }
@@ -20,96 +20,118 @@
     .container {
       width: 100%;
       max-width: 480px;
-      background: #fff;
+      background: #554281;
       overflow: hidden;
     }
 
-    /* ── Hero ── */
+    /* ══════════════════════════
+       스크롤 페이드인
+    ══════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════════
+       Hero
+    ══════════════════════════ */
     .hero {
-      background: linear-gradient(160deg, #f8c8dc 0%, #e8b8f0 30%, #c8a8e8 60%, #a890d4 100%);
-      padding: 32px 20px 0;
+      background: linear-gradient(160deg, #f8c8dc 0%, #e8b0f0 35%, #c0a0e8 65%, #a080d0 100%);
+      padding: 40px 20px 0;
       text-align: center;
       position: relative;
       overflow: hidden;
+      min-height: 300px;
     }
 
-    /* 콘페티 */
-    .confetti span {
+    /* 콘페티 캔버스 */
+    #confetti-canvas {
       position: absolute;
-      display: block;
-      border-radius: 2px;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .invited {
-      font-family: 'Dancing Script', cursive;
-      font-size: 34px;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(80,40,120,0.3);
-      margin-bottom: 18px;
+    .hero-content {
       position: relative;
+      z-index: 2;
     }
 
     .hero-sub {
-      font-size: 12px;
-      color: rgba(255,255,255,0.92);
-      letter-spacing: 0.5px;
+      font-size: 13px;
+      color: rgba(60, 20, 100, 0.8);
+      letter-spacing: 1px;
       margin-bottom: 6px;
-      line-height: 1.6;
     }
 
     .hero-title {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 700;
-      color: #2e1a60;
+      color: #2a1550;
       line-height: 1.2;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .hero-title span { display: block; }
 
-    .hero-book {
-      margin-top: 24px;
-      width: 58%;
-      max-width: 220px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      filter: drop-shadow(0 8px 24px rgba(60,20,100,0.35));
+    .hero-subtitle {
+      font-size: 13px;
+      color: rgba(60, 20, 100, 0.75);
+      margin-top: 10px;
+      letter-spacing: 1px;
     }
 
     .hero-doctors {
-      margin-top: 16px;
+      margin-top: 28px;
       width: 100%;
       display: block;
     }
 
-    /* ── Date Band ── */
+    /* ══════════════════════════
+       Date Band
+    ══════════════════════════ */
     .date-band {
-      background: #5b4a9a;
+      background: #554281;
       color: #fff;
       text-align: center;
-      padding: 24px 20px;
+      padding: 26px 20px;
     }
 
     .date-band .date-main {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 400;
-      line-height: 1.7;
+      line-height: 1.8;
       letter-spacing: 1px;
     }
 
-    /* ── 공통 섹션 ── */
+    /* ══════════════════════════
+       공통 섹션
+    ══════════════════════════ */
+    .section-purple {
+      background: #554281;
+      padding: 48px 28px;
+    }
+
     .section-white {
       background: #fff;
-      padding: 44px 28px;
+      padding: 48px 28px;
     }
 
-    .section-light {
-      background: #f3eef8;
-      padding: 44px 28px;
+    .section-title-white {
+      text-align: center;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: 3px;
+      margin-bottom: 32px;
     }
 
-    .section-title {
+    .section-title-dark {
       text-align: center;
       font-size: 22px;
       color: #4a3480;
@@ -117,12 +139,14 @@
       margin-bottom: 32px;
     }
 
-    /* ── 초대의 말 ── */
+    /* ══════════════════════════
+       초대의 말
+    ══════════════════════════ */
     .invite-card {
       background: #faf8fe;
       border: 1px solid #e0d8f0;
       border-radius: 4px;
-      padding: 28px 20px;
+      padding: 28px 22px;
       position: relative;
     }
 
@@ -130,12 +154,10 @@
     .invite-card::after {
       content: '';
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: 16px; height: 16px;
       border-color: #c0b0e0;
       border-style: solid;
     }
-
     .invite-card::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
     .invite-card::after  { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
 
@@ -150,41 +172,40 @@
     .invite-text p { margin-bottom: 16px; }
     .invite-text p:last-child { margin-bottom: 0; }
 
-    /* ── 타임 테이블 ── */
+    /* ══════════════════════════
+       타임 테이블
+    ══════════════════════════ */
     .timetable {
       width: 100%;
       border-collapse: collapse;
     }
 
     .timetable tr {
-      border-bottom: 1px solid #ede8f5;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
     .timetable tr:last-child { border-bottom: none; }
 
     .timetable td {
-      padding: 14px 4px;
+      padding: 15px 4px;
       font-size: 13.5px;
-      color: #333;
+      color: #fff;
       line-height: 1.5;
     }
 
     .timetable .time {
       width: 44%;
-      color: #888;
-      font-size: 13px;
+      color: #c8b8f0;
+      font-size: 12.5px;
       vertical-align: top;
-      padding-top: 15px;
+      padding-top: 17px;
     }
 
-    .timetable .event {
-      font-weight: 600;
-      color: #4a3480;
-    }
+    .timetable .event { font-weight: 500; }
 
     .timetable .event-detail {
       font-size: 12px;
-      color: #888;
+      color: #b8a8e0;
       margin-top: 4px;
       line-height: 1.6;
     }
@@ -192,23 +213,24 @@
     .gift-note {
       margin-top: 24px;
       text-align: center;
-      color: #888;
+      color: #c0b0e8;
       font-size: 12.5px;
       line-height: 1.8;
     }
 
-    /* ── 오시는 길 ── */
+    /* ══════════════════════════
+       오시는 길
+    ══════════════════════════ */
     .map-wrapper {
       width: 100%;
       height: 210px;
       border-radius: 8px;
       overflow: hidden;
-      border: 1px solid #ddd8f0;
+      border: 1px solid #e0d8f0;
     }
 
     .map-wrapper iframe {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       border: none;
     }
 
@@ -222,7 +244,7 @@
 
     .address strong { color: #4a3480; }
 
-    .transport { margin-top: 20px; }
+    .transport { margin-top: 22px; }
 
     .transport-title {
       font-size: 15px;
@@ -237,34 +259,31 @@
       line-height: 2;
     }
 
-    /* 검색바 스타일 링크 */
-    .book-search-bar {
-      margin-top: 28px;
-      display: flex;
-      align-items: center;
-      background: #fff;
-      border: 1px solid #ccc8e8;
-      border-radius: 24px;
-      padding: 10px 18px;
-      text-decoration: none;
-      color: #666;
-      font-size: 13px;
-      justify-content: space-between;
+    /* ══════════════════════════
+       책 섹션
+    ══════════════════════════ */
+    .book-section {
+      background: #554281;
+      padding: 44px 24px 56px;
+      text-align: center;
     }
 
-    .book-search-bar svg {
-      width: 18px;
-      height: 18px;
-      fill: #888;
-      flex-shrink: 0;
+    .book-section img {
+      width: 78%;
+      max-width: 300px;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 10px 32px rgba(20,5,60,0.5));
     }
 
-    /* ── Footer Nav ── */
+    /* ══════════════════════════
+       Footer
+    ══════════════════════════ */
     .footer-nav {
-      background: #5b4a9a;
+      background: #3d2f6a;
       display: flex;
       justify-content: space-around;
-      padding: 16px 0 24px;
+      padding: 16px 0 26px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
@@ -274,19 +293,17 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      color: #e0d8f5;
+      color: #d0c8f0;
       font-size: 11.5px;
     }
 
     .footer-nav a svg {
-      width: 26px;
-      height: 26px;
-      fill: #e0d8f5;
+      width: 26px; height: 26px;
+      fill: #d0c8f0;
     }
 
     .footer-nav a img.footer-icon {
-      width: 26px;
-      height: 26px;
+      width: 26px; height: 26px;
       object-fit: contain;
     }
 
@@ -299,85 +316,47 @@
 
   <!-- Hero -->
   <div class="hero">
-    <!-- 콘페티 -->
-    <div class="confetti">
-      <span style="width:9px;height:9px;background:#f9e04a;top:4%;left:8%;transform:rotate(20deg)"></span>
-      <span style="width:7px;height:7px;background:#7ed6df;top:7%;left:85%;transform:rotate(-30deg)"></span>
-      <span style="width:11px;height:5px;background:#ff9ff3;top:13%;left:75%;transform:rotate(50deg)"></span>
-      <span style="width:6px;height:10px;background:#54a0ff;top:3%;left:55%;transform:rotate(-15deg)"></span>
-      <span style="width:8px;height:8px;background:#f9e04a;top:18%;left:92%;transform:rotate(35deg)"></span>
-      <span style="width:10px;height:5px;background:#ff6b81;top:6%;left:20%;transform:rotate(60deg)"></span>
-      <span style="width:7px;height:7px;background:#7ed6df;top:15%;left:3%;transform:rotate(10deg)"></span>
-      <span style="width:8px;height:4px;background:#ff9ff3;top:2%;left:38%;transform:rotate(-40deg)"></span>
-      <span style="width:6px;height:6px;background:#54a0ff;top:20%;left:65%;transform:rotate(25deg)"></span>
-      <span style="width:9px;height:5px;background:#f9e04a;top:10%;left:47%;transform:rotate(-20deg)"></span>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-sub">– 제 1회 –</p>
+      <h1 class="hero-title">
+        <span>피부텐텐</span>
+        <span>피부콘서트</span>
+      </h1>
+      <p class="hero-subtitle">작고 우아한 빛나는 얼굴만들기</p>
+      <img src="doctors.png" class="hero-doctors" alt="피부텐텐 원장님들" />
     </div>
-
-    <p class="invited">You're Invited!</p>
-
-    <p class="hero-sub">
-      『작고 우아한 빛나는 얼굴 만들기』 책 출간 기념<br>
-      – 제 1회 –
-    </p>
-    <h1 class="hero-title">
-      <span>피부텐텐</span>
-      <span>피부콘서트</span>
-    </h1>
-
-    <img src="book.png" class="hero-book" alt="작고 우아한 빛나는 얼굴 만들기" />
-    <img src="doctors.png" class="hero-doctors" alt="피부텐텐 원장님들" />
   </div>
 
   <!-- Date Band -->
-  <div class="date-band">
+  <div class="date-band reveal">
     <p class="date-main">6월 30일 (화) 오후 8시</p>
     <p class="date-main">신논현역 카페 앙트레블</p>
   </div>
 
   <!-- 초대의 말 -->
   <div class="section-white">
-    <p class="section-title">- 초대의 말 -</p>
-    <div class="invite-card">
+    <p class="section-title-dark reveal">- 초대의 말 -</p>
+    <div class="invite-card reveal">
       <div class="invite-text">
-        <p>
-          지금 서울은 안티에이징의<br>
-          가장 뜨거운 중심지입니다.
-        </p>
+        <p>지금 서울은 안티에이징의<br>가장 뜨거운 중심지입니다.</p>
         <p>K-뷰티가 세계의 기준이 된 지금</p>
-        <p>
-          피부텐텐이 그 진짜 이야기를<br>
-          무대 위에서 들려드립니다.
-        </p>
-        <p>
-          진료실에서 수천 명의 얼굴을 마주하며,<br>
-          저희는 깨달았습니다.
-        </p>
-        <p>
-          결국 사람들이 바라는 것은<br>
-          세 가지로 모인다는 것을.
-        </p>
+        <p>피부텐텐이 그 진짜 이야기를<br>무대 위에서 들려드립니다.</p>
+        <p>진료실에서 수천 명의 얼굴을 마주하며,<br>저희는 깨달았습니다.</p>
+        <p>결국 사람들이 바라는 것은<br>세 가지로 모인다는 것을.</p>
         <p>작은 얼굴, 우아한 인상, 건강하게 빛나는 피부.</p>
         <p>저희는 이 세 가지를 줄여 '작·우·빛'이라 부릅니다.</p>
-        <p>
-          피부텐텐 원장들이 전하는<br>
-          '작·우·빛'의 첫 번째 이야기,
-        </p>
-        <p>
-          그리고 신간 《작고 우아한 빛나는 얼굴 만들기》<br>
-          출간을 기념하며—
-        </p>
-        <p>
-          가장 나다운 빛을 찾아가는 하루에<br>
-          여러분을 초대합니다.
-        </p>
+        <p>피부텐텐 원장들이 전하는<br>'작·우·빛'의 첫 번째 이야기,</p>
+        <p>그리고 신간 《작고 우아한 빛나는 얼굴 만들기》<br>출간을 기념하며—</p>
+        <p>가장 나다운 빛을 찾아가는 하루에<br>여러분을 초대합니다.</p>
       </div>
     </div>
   </div>
 
   <!-- 타임 테이블 -->
-  <div class="section-light">
-    <p class="section-title">- 타임 테이블 -</p>
-    <table class="timetable">
+  <div class="section-purple">
+    <p class="section-title-white reveal">- 타임 테이블 -</p>
+    <table class="timetable reveal">
       <tr>
         <td class="time">20:00 ~ 20:30</td>
         <td>
@@ -402,7 +381,7 @@
         <td><div class="event">경품추첨</div></td>
       </tr>
     </table>
-    <p class="gift-note">
+    <p class="gift-note reveal">
       참석자 전원에게는 40만원 상당의 선물이 증정됩니다<br>
       행사 마지막에 경품추첨시간이 있습니다
     </p>
@@ -410,45 +389,40 @@
 
   <!-- 오시는 길 -->
   <div class="section-white">
-    <p class="section-title">- 오시는길 -</p>
-
-    <div class="map-wrapper">
+    <p class="section-title-dark reveal">- 오시는길 -</p>
+    <div class="map-wrapper reveal">
       <iframe
         src="https://maps.google.com/maps?q=서울특별시+강남구+강남대로102길+45&output=embed&z=16&hl=ko"
-        allowfullscreen
-        loading="lazy"
+        allowfullscreen loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-
-    <p class="address">
+    <p class="address reveal">
       서울특별시 강남구 강남대로 102길 45<br>
       <strong>카페 앙트레블</strong>
     </p>
-
-    <div class="transport">
+    <div class="transport reveal">
       <p class="transport-title">교통 안내</p>
       <p class="transport-item">
         🚇 신논현역 6번 출구에서 도보 6분<br>
         🚇 강남역 11번 출구에서 도보 10분
       </p>
     </div>
-
-    <div class="transport">
+    <div class="transport reveal">
       <p class="transport-title">주차 안내</p>
       <p class="transport-item">
         🅿️ 국기원주차장 주차가능<br>
         &nbsp;&nbsp;&nbsp;&nbsp;(시간당 3,600원)
       </p>
     </div>
-
-    <a class="book-search-bar" href="https://search.shopping.naver.com/search/all?query=작고+우아한+빛나는+얼굴+만들기" target="_blank">
-      <span>작고 우아한 빛나는 얼굴만들기</span>
-      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-    </a>
   </div>
 
-  <!-- Footer Nav -->
+  <!-- 책 이미지 -->
+  <div class="book-section">
+    <img src="book.png" class="reveal" alt="작고 우아한 빛나는 얼굴 만들기" />
+  </div>
+
+  <!-- Footer -->
   <div class="footer-nav">
     <a href="https://maps.google.com/maps?q=서울특별시+강남구+강남대로102길+45" target="_blank">
       <svg viewBox="0 0 24 24">
@@ -473,5 +447,92 @@
   </div>
 
 </div>
+
+<script>
+/* ── 콘페티 애니메이션 ── */
+(function() {
+  const canvas = document.getElementById('confetti-canvas');
+  const hero   = canvas.parentElement;
+  const ctx    = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+
+  const COLORS = ['#f9e04a','#ff9ff3','#54a0ff','#7ed6df','#ff6b81','#ffd32a','#0fbcf9','#aaa1ff'];
+  const pieces = [];
+  const COUNT  = 80;
+
+  for (let i = 0; i < COUNT; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height * 0.4 - canvas.height * 0.2,
+      w: Math.random() * 9 + 5,
+      h: Math.random() * 5 + 3,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      angle: Math.random() * Math.PI * 2,
+      spin:  (Math.random() - 0.5) * 0.15,
+      vy:    Math.random() * 2.5 + 1.2,
+      vx:    (Math.random() - 0.5) * 1.2,
+      alpha: 1,
+      delay: Math.random() * 80  /* frames */
+    });
+  }
+
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    frame++;
+
+    pieces.forEach(p => {
+      if (frame < p.delay) return;
+
+      p.y     += p.vy;
+      p.x     += p.vx;
+      p.angle += p.spin;
+
+      if (p.y > canvas.height + 20) {
+        p.y     = -20;
+        p.x     = Math.random() * canvas.width;
+        p.alpha = 1;
+      }
+
+      if (p.y > canvas.height * 0.7) {
+        p.alpha = Math.max(0, p.alpha - 0.025);
+      }
+
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener('resize', resize);
+})();
+
+/* ── 스크롤 페이드인 ── */
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const io  = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  els.forEach(el => io.observe(el));
+})();
+</script>
+
 </body>
 </html>
