@@ -19,29 +19,15 @@
     .container {
       width: 100%;
       max-width: 480px;
-      background: #fff;
+      background: #5b4a9a;
       overflow: hidden;
       position: relative;
     }
 
-    /* ── Hero ── */
     .hero {
       background: linear-gradient(170deg, #fce4f0 0%, #ede3f8 40%, #d8d0f0 100%);
       padding: 36px 20px 0;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .confetti {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none;
-    }
-
-    .confetti span {
-      position: absolute;
-      display: block;
-      border-radius: 2px;
     }
 
     .hero-sub {
@@ -60,9 +46,7 @@
       margin-bottom: 4px;
     }
 
-    .hero-title span {
-      display: block;
-    }
+    .hero-title span { display: block; }
 
     .hero-subtitle {
       font-size: 13px;
@@ -74,18 +58,13 @@
     .hero-photo {
       margin-top: 28px;
       width: 100%;
-      background: linear-gradient(135deg, #c9b8e8 0%, #b8a0d8 100%);
-      min-height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 13px;
-      letter-spacing: 1px;
-      padding: 40px 20px;
     }
 
-    /* ── Date Band ── */
+    .hero-photo img {
+      width: 100%;
+      display: block;
+    }
+
     .date-band {
       background: #5b4a9a;
       color: #fff;
@@ -94,32 +73,30 @@
     }
 
     .date-band .date-line {
-      font-size: 22px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 300;
       letter-spacing: 1px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* ── Section Common ── */
     .section {
+      background: #5b4a9a;
       padding: 40px 24px;
     }
 
     .section-title {
       text-align: center;
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 600;
-      color: #2e1f5e;
+      color: #fff;
       letter-spacing: 4px;
       margin-bottom: 28px;
     }
 
-    /* ── 초대의 말 ── */
     .invite-box {
-      border: 1px solid #c8bce0;
+      border: 1px solid rgba(255,255,255,0.3);
       padding: 28px 22px;
       position: relative;
-      background: #fff;
     }
 
     .invite-box::before,
@@ -128,7 +105,7 @@
       position: absolute;
       width: 18px;
       height: 18px;
-      border-color: #a090cc;
+      border-color: rgba(255,255,255,0.5);
       border-style: solid;
     }
 
@@ -137,7 +114,7 @@
 
     .invite-text {
       font-size: 13.5px;
-      color: #444;
+      color: #e8e0f8;
       line-height: 2;
       text-align: center;
       word-break: keep-all;
@@ -146,15 +123,12 @@
     .invite-text p { margin-bottom: 14px; }
     .invite-text p:last-child { margin-bottom: 0; }
 
-    /* ── 타임 테이블 ── */
     .timetable-section {
       background: #5b4a9a;
       padding: 40px 24px;
     }
 
-    .timetable-section .section-title {
-      color: #fff;
-    }
+    .timetable-section .section-title { color: #fff; }
 
     .timetable {
       width: 100%;
@@ -168,7 +142,7 @@
     .timetable tr:last-child { border-bottom: none; }
 
     .timetable td {
-      padding: 10px 4px;
+      padding: 16px 4px;
       color: #fff;
       font-size: 13.5px;
       line-height: 1.5;
@@ -179,17 +153,15 @@
       color: #d8cfee;
       font-size: 12.5px;
       vertical-align: top;
-      padding-top: 11px;
+      padding-top: 17px;
     }
 
-    .timetable .event {
-      font-weight: 500;
-    }
+    .timetable .event { font-weight: 500; }
 
     .timetable .event-detail {
       font-size: 12px;
       color: #c9bfe8;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .gift-note {
@@ -200,22 +172,19 @@
       line-height: 1.8;
     }
 
-    /* ── 오시는 길 ── */
     .map-section {
-      background: #f5f3fb;
+      background: #5b4a9a;
       padding: 40px 24px;
     }
 
-    .map-section .section-title {
-      color: #2e1f5e;
-    }
+    .map-section .section-title { color: #fff; }
 
     .map-wrapper {
       width: 100%;
       height: 220px;
       border-radius: 8px;
       overflow: hidden;
-      border: 1px solid #d0c8e8;
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
     .map-wrapper iframe {
@@ -228,60 +197,49 @@
       text-align: center;
       margin-top: 16px;
       font-size: 13.5px;
-      color: #3a3060;
+      color: #e8e0f8;
       line-height: 1.7;
     }
 
-    .transport {
-      margin-top: 20px;
-      background: #fff;
-      border-radius: 8px;
-      padding: 16px 18px;
-      border: 1px solid #e0d8f0;
-    }
+    .address strong { color: #fff; }
+
+    .transport { margin-top: 20px; }
 
     .transport-title {
       font-size: 12px;
       font-weight: 600;
-      color: #5b4a9a;
+      color: #c9bfe8;
       letter-spacing: 1px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .transport-item {
       font-size: 12.5px;
-      color: #555;
-      line-height: 1.8;
+      color: #e8e0f8;
+      line-height: 1.9;
     }
 
-    /* ── Book section ── */
     .book-section {
-      background: #eae6f5;
-      padding: 36px 24px;
+      background: #5b4a9a;
+      padding: 36px 24px 48px;
       text-align: center;
     }
 
-    .book-placeholder {
-      width: 140px;
-      height: 190px;
-      background: linear-gradient(135deg, #b8a0d8, #8b70c0);
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 12px;
-      letter-spacing: 1px;
-      box-shadow: 4px 4px 16px rgba(91,74,154,0.3);
+    .book-section img {
+      width: 60%;
+      max-width: 220px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+      box-shadow: 6px 6px 24px rgba(0,0,0,0.3);
     }
 
-    /* ── Footer Nav ── */
     .footer-nav {
-      background: #5b4a9a;
+      background: #4a3a80;
       display: flex;
       justify-content: space-around;
       padding: 14px 0 20px;
-      border-top: 1px solid #7060b0;
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
 
     .footer-nav a {
@@ -308,41 +266,23 @@
 <body>
 <div class="container">
 
-  <!-- Hero -->
   <div class="hero">
-    <!-- Confetti -->
-    <div class="confetti">
-      <span style="width:8px;height:8px;background:#f4a7c3;top:5%;left:15%;transform:rotate(30deg)"></span>
-      <span style="width:6px;height:6px;background:#a0d4f0;top:8%;left:80%;transform:rotate(-20deg)"></span>
-      <span style="width:10px;height:5px;background:#f9d057;top:12%;left:60%;transform:rotate(45deg)"></span>
-      <span style="width:7px;height:7px;background:#b8d88b;top:3%;left:40%;transform:rotate(10deg)"></span>
-      <span style="width:5px;height:10px;background:#f4a7c3;top:18%;left:88%;transform:rotate(-35deg)"></span>
-      <span style="width:8px;height:4px;background:#a0d4f0;top:6%;left:30%;transform:rotate(60deg)"></span>
-      <span style="width:6px;height:6px;background:#c9a0e8;top:15%;left:5%;transform:rotate(20deg)"></span>
-      <span style="width:9px;height:4px;background:#f9d057;top:2%;left:70%;transform:rotate(-15deg)"></span>
-      <span style="width:5px;height:5px;background:#f4a7c3;top:20%;left:50%;transform:rotate(40deg)"></span>
-    </div>
-
     <p class="hero-sub">– 제 1회 –</p>
     <h1 class="hero-title">
       <span>피부텐텐</span>
       <span>피부콘서트</span>
     </h1>
     <p class="hero-subtitle">작고 우아한 빛나는 얼굴만들기</p>
-
-    <!-- 원장님들 사진 영역 -->
     <div class="hero-photo">
-      <img src="doctors.png" alt="피부텐텐 원장님들" style="width:100%;display:block;" />
+      <img src="doctors.png" alt="피부텐텐 원장님들" />
     </div>
   </div>
 
-  <!-- Date Band -->
   <div class="date-band">
-    <p class="date-line">6. 30 (화) 19시 30분</p>
+    <p class="date-line">6월 30일 (화) 오후 8시</p>
     <p class="date-line">신논현역 카페 앙트레블</p>
   </div>
 
-  <!-- 초대의 말 -->
   <div class="section">
     <p class="section-title">– 초대의 말 –</p>
     <div class="invite-box">
@@ -375,7 +315,6 @@
     </div>
   </div>
 
-  <!-- 타임 테이블 -->
   <div class="timetable-section">
     <p class="section-title">– 타임 테이블 –</p>
     <table class="timetable">
@@ -409,10 +348,8 @@
     </p>
   </div>
 
-  <!-- 오시는 길 -->
   <div class="map-section">
     <p class="section-title">– 오시는 길 –</p>
-
     <div class="map-wrapper">
       <iframe
         src="https://maps.google.com/maps?q=서울특별시+강남구+강남대로102길+45&output=embed&z=16&hl=ko"
@@ -421,12 +358,10 @@
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-
     <p class="address">
       서울특별시 강남구 강남대로 102길 45<br>
       <strong>카페 앙트레블</strong>
     </p>
-
     <div class="transport">
       <p class="transport-title">교통 안내</p>
       <p class="transport-item">
@@ -434,8 +369,7 @@
         🚇 강남역 11번 출구에서 도보 10분
       </p>
     </div>
-
-    <div class="transport" style="margin-top: 10px;">
+    <div class="transport">
       <p class="transport-title">주차 안내</p>
       <p class="transport-item">
         🅿️ 국기원주차장 주차가능<br>
@@ -444,29 +378,21 @@
     </div>
   </div>
 
-  <!-- 책 이미지 -->
   <div class="book-section">
-    <img src="book.png" alt="작고 우아한 빛나는 얼굴 만들기" style="width:60%;max-width:220px;display:block;margin:0 auto;border-radius:4px;box-shadow:4px 4px 20px rgba(91,74,154,0.3);" />
+    <img src="book.png" alt="작고 우아한 빛나는 얼굴 만들기" />
   </div>
 
-  <!-- Footer Nav -->
   <div class="footer-nav">
     <a href="https://maps.google.com/maps?q=서울특별시+강남구+강남대로102길+45" target="_blank">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       오시는길
     </a>
     <a href="https://pibutenten.com" target="_blank">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
       피부텐텐
     </a>
     <a href="https://pibutenten.kr/app" target="_blank">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 20c-.83 0-1.5-.67-1.5-1.5S11.17 18 12 18s1.5.67 1.5 1.5S12.83 21 12 21zm5-4H7V4h10v13z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 20c-.83 0-1.5-.67-1.5-1.5S11.17 18 12 18s1.5.67 1.5 1.5S12.83 21 12 21zm5-4H7V4h10v13z"/></svg>
       피부텐텐어플
     </a>
   </div>
