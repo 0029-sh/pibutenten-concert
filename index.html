@@ -6,13 +6,13 @@
   <title>제 1회 피부텐텐 피부콘서트</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gowun+Dodum&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Gowun Dodum', sans-serif;
-      background: #f0eef8;
+      background: #ede8f5;
       display: flex;
       justify-content: center;
     }
@@ -20,51 +20,65 @@
     .container {
       width: 100%;
       max-width: 480px;
-      background: #5b4a9a;
+      background: #fff;
       overflow: hidden;
     }
 
     /* ── Hero ── */
     .hero {
-      background-image: url('hero-bg.jpg');
-      background-size: cover;
-      background-position: center;
-      /* CSS 폴백 (hero-bg.jpg 없을 때) */
-      background-color: #f0e8f8;
-      padding: 36px 20px 0;
+      background: linear-gradient(160deg, #f8c8dc 0%, #e8b8f0 30%, #c8a8e8 60%, #a890d4 100%);
+      padding: 32px 20px 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 콘페티 */
+    .confetti span {
+      position: absolute;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .invited {
+      font-family: 'Dancing Script', cursive;
+      font-size: 34px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(80,40,120,0.3);
+      margin-bottom: 18px;
+      position: relative;
     }
 
     .hero-sub {
-      font-size: 13px;
-      color: #7b6a9e;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      line-height: 1.6;
     }
 
     .hero-title {
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 700;
-      color: #2e1f5e;
+      color: #2e1a60;
       line-height: 1.2;
-      margin-bottom: 4px;
+      margin-top: 6px;
     }
 
     .hero-title span { display: block; }
 
-    .hero-subtitle {
-      font-size: 13px;
-      color: #7b6a9e;
-      margin-top: 10px;
-      letter-spacing: 1px;
+    .hero-book {
+      margin-top: 24px;
+      width: 58%;
+      max-width: 220px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 8px 24px rgba(60,20,100,0.35));
     }
 
-    .hero-photo {
-      margin-top: 28px;
-      width: 100%;
-    }
-
-    .hero-photo img {
+    .hero-doctors {
+      margin-top: 16px;
       width: 100%;
       display: block;
     }
@@ -74,106 +88,122 @@
       background: #5b4a9a;
       color: #fff;
       text-align: center;
-      padding: 22px 20px;
+      padding: 24px 20px;
     }
 
-    .date-band .date-line {
-      font-size: 18px;
-      font-weight: 300;
-      letter-spacing: 1px;
+    .date-band .date-main {
+      font-size: 20px;
+      font-weight: 400;
       line-height: 1.7;
+      letter-spacing: 1px;
     }
 
-    /* ── 초대의 말 ── */
-    .section {
-      background: #5b4a9a;
-      padding: 40px 24px;
+    /* ── 공통 섹션 ── */
+    .section-white {
+      background: #fff;
+      padding: 44px 28px;
+    }
+
+    .section-light {
+      background: #f3eef8;
+      padding: 44px 28px;
     }
 
     .section-title {
       text-align: center;
       font-size: 22px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 4px;
-      margin-bottom: 28px;
+      color: #4a3480;
+      letter-spacing: 3px;
+      margin-bottom: 32px;
     }
 
+    /* ── 초대의 말 ── */
+    .invite-card {
+      background: #faf8fe;
+      border: 1px solid #e0d8f0;
+      border-radius: 4px;
+      padding: 28px 20px;
+      position: relative;
+    }
+
+    .invite-card::before,
+    .invite-card::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: #c0b0e0;
+      border-style: solid;
+    }
+
+    .invite-card::before { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
+    .invite-card::after  { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
+
     .invite-text {
-      font-size: 14px;
-      color: #e8e0f8;
-      line-height: 2;
+      font-size: 13.5px;
+      color: #444;
+      line-height: 2.1;
       text-align: center;
       word-break: keep-all;
     }
 
-    .invite-text p { margin-bottom: 18px; }
+    .invite-text p { margin-bottom: 16px; }
     .invite-text p:last-child { margin-bottom: 0; }
 
     /* ── 타임 테이블 ── */
-    .timetable-section {
-      background: #5b4a9a;
-      padding: 40px 24px;
-    }
-
-    .timetable-section .section-title { color: #fff; }
-
     .timetable {
       width: 100%;
       border-collapse: collapse;
     }
 
     .timetable tr {
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-bottom: 1px solid #ede8f5;
     }
 
     .timetable tr:last-child { border-bottom: none; }
 
     .timetable td {
-      padding: 16px 4px;
-      color: #fff;
+      padding: 14px 4px;
       font-size: 13.5px;
+      color: #333;
       line-height: 1.5;
     }
 
     .timetable .time {
       width: 44%;
-      color: #d8cfee;
-      font-size: 12.5px;
+      color: #888;
+      font-size: 13px;
       vertical-align: top;
-      padding-top: 17px;
+      padding-top: 15px;
     }
 
-    .timetable .event { font-weight: 500; }
+    .timetable .event {
+      font-weight: 600;
+      color: #4a3480;
+    }
 
     .timetable .event-detail {
       font-size: 12px;
-      color: #c9bfe8;
+      color: #888;
       margin-top: 4px;
+      line-height: 1.6;
     }
 
     .gift-note {
-      margin-top: 22px;
+      margin-top: 24px;
       text-align: center;
-      color: #d8cfee;
+      color: #888;
       font-size: 12.5px;
       line-height: 1.8;
     }
 
     /* ── 오시는 길 ── */
-    .map-section {
-      background: #5b4a9a;
-      padding: 40px 24px;
-    }
-
-    .map-section .section-title { color: #fff; }
-
     .map-wrapper {
       width: 100%;
-      height: 220px;
+      height: 210px;
       border-radius: 8px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid #ddd8f0;
     }
 
     .map-wrapper iframe {
@@ -186,50 +216,56 @@
       text-align: center;
       margin-top: 16px;
       font-size: 14px;
-      color: #e8e0f8;
-      line-height: 1.7;
+      color: #555;
+      line-height: 1.8;
     }
 
-    .address strong { color: #fff; }
+    .address strong { color: #4a3480; }
 
-    .transport { margin-top: 22px; }
+    .transport { margin-top: 20px; }
 
     .transport-title {
       font-size: 15px;
       font-weight: 600;
-      color: #c9bfe8;
-      letter-spacing: 1px;
+      color: #4a3480;
       margin-bottom: 8px;
     }
 
     .transport-item {
       font-size: 14px;
-      color: #e8e0f8;
+      color: #555;
       line-height: 2;
     }
 
-    /* ── Book section ── */
-    .book-section {
-      background: #5b4a9a;
-      padding: 40px 20px 52px;
-      text-align: center;
+    /* 검색바 스타일 링크 */
+    .book-search-bar {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #ccc8e8;
+      border-radius: 24px;
+      padding: 10px 18px;
+      text-decoration: none;
+      color: #666;
+      font-size: 13px;
+      justify-content: space-between;
     }
 
-    .book-section img {
-      width: 88%;
-      max-width: 360px;
-      display: block;
-      margin: 0 auto;
-      filter: drop-shadow(0 8px 32px rgba(30,10,80,0.45));
+    .book-search-bar svg {
+      width: 18px;
+      height: 18px;
+      fill: #888;
+      flex-shrink: 0;
     }
 
     /* ── Footer Nav ── */
     .footer-nav {
-      background: #4a3a80;
+      background: #5b4a9a;
       display: flex;
       justify-content: space-around;
-      padding: 14px 0 22px;
-      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 16px 0 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     .footer-nav a {
@@ -239,8 +275,7 @@
       gap: 6px;
       text-decoration: none;
       color: #e0d8f5;
-      font-size: 11px;
-      letter-spacing: 0.5px;
+      font-size: 11.5px;
     }
 
     .footer-nav a svg {
@@ -264,70 +299,84 @@
 
   <!-- Hero -->
   <div class="hero">
-    <p class="hero-sub">– 제 1회 –</p>
+    <!-- 콘페티 -->
+    <div class="confetti">
+      <span style="width:9px;height:9px;background:#f9e04a;top:4%;left:8%;transform:rotate(20deg)"></span>
+      <span style="width:7px;height:7px;background:#7ed6df;top:7%;left:85%;transform:rotate(-30deg)"></span>
+      <span style="width:11px;height:5px;background:#ff9ff3;top:13%;left:75%;transform:rotate(50deg)"></span>
+      <span style="width:6px;height:10px;background:#54a0ff;top:3%;left:55%;transform:rotate(-15deg)"></span>
+      <span style="width:8px;height:8px;background:#f9e04a;top:18%;left:92%;transform:rotate(35deg)"></span>
+      <span style="width:10px;height:5px;background:#ff6b81;top:6%;left:20%;transform:rotate(60deg)"></span>
+      <span style="width:7px;height:7px;background:#7ed6df;top:15%;left:3%;transform:rotate(10deg)"></span>
+      <span style="width:8px;height:4px;background:#ff9ff3;top:2%;left:38%;transform:rotate(-40deg)"></span>
+      <span style="width:6px;height:6px;background:#54a0ff;top:20%;left:65%;transform:rotate(25deg)"></span>
+      <span style="width:9px;height:5px;background:#f9e04a;top:10%;left:47%;transform:rotate(-20deg)"></span>
+    </div>
+
+    <p class="invited">You're Invited!</p>
+
+    <p class="hero-sub">
+      『작고 우아한 빛나는 얼굴 만들기』 책 출간 기념<br>
+      – 제 1회 –
+    </p>
     <h1 class="hero-title">
       <span>피부텐텐</span>
       <span>피부콘서트</span>
     </h1>
-    <p class="hero-subtitle">작고 우아한 빛나는 얼굴만들기</p>
-    <div class="hero-photo">
-      <img src="doctors.png" alt="피부텐텐 원장님들" />
-    </div>
+
+    <img src="book.png" class="hero-book" alt="작고 우아한 빛나는 얼굴 만들기" />
+    <img src="doctors.png" class="hero-doctors" alt="피부텐텐 원장님들" />
   </div>
 
   <!-- Date Band -->
   <div class="date-band">
-    <p class="date-line">6월 30일 (화) 오후 8시</p>
-    <p class="date-line">신논현역 카페 앙트레블</p>
+    <p class="date-main">6월 30일 (화) 오후 8시</p>
+    <p class="date-main">신논현역 카페 앙트레블</p>
   </div>
 
   <!-- 초대의 말 -->
-  <div class="section">
-    <p class="section-title">– 초대의 말 –</p>
-    <div class="invite-text">
-      <p>
-        지금 서울은 안티에이징의<br>
-        가장 뜨거운 중심지입니다.
-      </p>
-      <p>
-        K-뷰티가 세계의 기준이 된 지금
-      </p>
-      <p>
-        피부텐텐이 그 진짜 이야기를<br>
-        무대 위에서 들려드립니다.
-      </p>
-      <p>
-        진료실에서 수천 명의 얼굴을 마주하며,<br>
-        저희는 깨달았습니다.
-      </p>
-      <p>
-        결국 사람들이 바라는 것은<br>
-        세 가지로 모인다는 것을.
-      </p>
-      <p>
-        작은 얼굴, 우아한 인상, 건강하게 빛나는 피부.
-      </p>
-      <p>
-        저희는 이 세 가지를 줄여 '작·우·빛'이라 부릅니다.
-      </p>
-      <p>
-        피부텐텐 원장들이 전하는<br>
-        '작·우·빛'의 첫 번째 이야기,
-      </p>
-      <p>
-        그리고 신간 《작고 우아한 빛나는 얼굴 만들기》<br>
-        출간을 기념하며—
-      </p>
-      <p>
-        가장 나다운 빛을 찾아가는 하루에<br>
-        여러분을 초대합니다.
-      </p>
+  <div class="section-white">
+    <p class="section-title">- 초대의 말 -</p>
+    <div class="invite-card">
+      <div class="invite-text">
+        <p>
+          지금 서울은 안티에이징의<br>
+          가장 뜨거운 중심지입니다.
+        </p>
+        <p>K-뷰티가 세계의 기준이 된 지금</p>
+        <p>
+          피부텐텐이 그 진짜 이야기를<br>
+          무대 위에서 들려드립니다.
+        </p>
+        <p>
+          진료실에서 수천 명의 얼굴을 마주하며,<br>
+          저희는 깨달았습니다.
+        </p>
+        <p>
+          결국 사람들이 바라는 것은<br>
+          세 가지로 모인다는 것을.
+        </p>
+        <p>작은 얼굴, 우아한 인상, 건강하게 빛나는 피부.</p>
+        <p>저희는 이 세 가지를 줄여 '작·우·빛'이라 부릅니다.</p>
+        <p>
+          피부텐텐 원장들이 전하는<br>
+          '작·우·빛'의 첫 번째 이야기,
+        </p>
+        <p>
+          그리고 신간 《작고 우아한 빛나는 얼굴 만들기》<br>
+          출간을 기념하며—
+        </p>
+        <p>
+          가장 나다운 빛을 찾아가는 하루에<br>
+          여러분을 초대합니다.
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- 타임 테이블 -->
-  <div class="timetable-section">
-    <p class="section-title">– 타임 테이블 –</p>
+  <div class="section-light">
+    <p class="section-title">- 타임 테이블 -</p>
     <table class="timetable">
       <tr>
         <td class="time">20:00 ~ 20:30</td>
@@ -360,8 +409,9 @@
   </div>
 
   <!-- 오시는 길 -->
-  <div class="map-section">
-    <p class="section-title">– 오시는 길 –</p>
+  <div class="section-white">
+    <p class="section-title">- 오시는길 -</p>
+
     <div class="map-wrapper">
       <iframe
         src="https://maps.google.com/maps?q=서울특별시+강남구+강남대로102길+45&output=embed&z=16&hl=ko"
@@ -370,10 +420,12 @@
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
+
     <p class="address">
       서울특별시 강남구 강남대로 102길 45<br>
       <strong>카페 앙트레블</strong>
     </p>
+
     <div class="transport">
       <p class="transport-title">교통 안내</p>
       <p class="transport-item">
@@ -381,6 +433,7 @@
         🚇 강남역 11번 출구에서 도보 10분
       </p>
     </div>
+
     <div class="transport">
       <p class="transport-title">주차 안내</p>
       <p class="transport-item">
@@ -388,11 +441,11 @@
         &nbsp;&nbsp;&nbsp;&nbsp;(시간당 3,600원)
       </p>
     </div>
-  </div>
 
-  <!-- 책 이미지 -->
-  <div class="book-section">
-    <img src="book.png" alt="작고 우아한 빛나는 얼굴 만들기" />
+    <a class="book-search-bar" href="https://search.shopping.naver.com/search/all?query=작고+우아한+빛나는+얼굴+만들기" target="_blank">
+      <span>작고 우아한 빛나는 얼굴만들기</span>
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+    </a>
   </div>
 
   <!-- Footer Nav -->
@@ -404,7 +457,6 @@
       오시는길
     </a>
     <a href="https://www.youtube.com/@pibutenten" target="_blank">
-      <!-- pibutenten-icon.png 을 GitHub에 올려주시면 아래 img로 표시됩니다 -->
       <img src="pibutenten-icon.png" class="footer-icon" alt="피부텐텐"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <svg viewBox="0 0 24 24" style="display:none">
