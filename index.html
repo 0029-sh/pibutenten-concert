@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>제 1회 피부텐텐 피부콘서트</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap');
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Gowun Dodum', sans-serif;
       background: #f0eef8;
       display: flex;
       justify-content: center;
@@ -21,11 +22,15 @@
       max-width: 480px;
       background: #5b4a9a;
       overflow: hidden;
-      position: relative;
     }
 
+    /* ── Hero ── */
     .hero {
-      background: linear-gradient(170deg, #fce4f0 0%, #ede3f8 40%, #d8d0f0 100%);
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      /* CSS 폴백 (hero-bg.jpg 없을 때) */
+      background-color: #f0e8f8;
       padding: 36px 20px 0;
       text-align: center;
     }
@@ -38,7 +43,6 @@
     }
 
     .hero-title {
-      font-family: 'Noto Serif KR', serif;
       font-size: 38px;
       font-weight: 700;
       color: #2e1f5e;
@@ -65,6 +69,7 @@
       display: block;
     }
 
+    /* ── Date Band ── */
     .date-band {
       background: #5b4a9a;
       color: #fff;
@@ -79,6 +84,7 @@
       line-height: 1.7;
     }
 
+    /* ── 초대의 말 ── */
     .section {
       background: #5b4a9a;
       padding: 40px 24px;
@@ -93,36 +99,18 @@
       margin-bottom: 28px;
     }
 
-    .invite-box {
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 28px 22px;
-      position: relative;
-    }
-
-    .invite-box::before,
-    .invite-box::after {
-      content: '';
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-color: rgba(255,255,255,0.5);
-      border-style: solid;
-    }
-
-    .invite-box::before { top: 6px; left: 6px; border-width: 1px 0 0 1px; }
-    .invite-box::after  { bottom: 6px; right: 6px; border-width: 0 1px 1px 0; }
-
     .invite-text {
-      font-size: 13.5px;
+      font-size: 14px;
       color: #e8e0f8;
       line-height: 2;
       text-align: center;
       word-break: keep-all;
     }
 
-    .invite-text p { margin-bottom: 14px; }
+    .invite-text p { margin-bottom: 18px; }
     .invite-text p:last-child { margin-bottom: 0; }
 
+    /* ── 타임 테이블 ── */
     .timetable-section {
       background: #5b4a9a;
       padding: 40px 24px;
@@ -172,6 +160,7 @@
       line-height: 1.8;
     }
 
+    /* ── 오시는 길 ── */
     .map-section {
       background: #5b4a9a;
       padding: 40px 24px;
@@ -196,49 +185,50 @@
     .address {
       text-align: center;
       margin-top: 16px;
-      font-size: 13.5px;
+      font-size: 14px;
       color: #e8e0f8;
       line-height: 1.7;
     }
 
     .address strong { color: #fff; }
 
-    .transport { margin-top: 20px; }
+    .transport { margin-top: 22px; }
 
     .transport-title {
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 600;
       color: #c9bfe8;
       letter-spacing: 1px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .transport-item {
-      font-size: 12.5px;
+      font-size: 14px;
       color: #e8e0f8;
-      line-height: 1.9;
+      line-height: 2;
     }
 
+    /* ── Book section ── */
     .book-section {
       background: #5b4a9a;
-      padding: 36px 24px 48px;
+      padding: 40px 20px 52px;
       text-align: center;
     }
 
     .book-section img {
-      width: 60%;
-      max-width: 220px;
+      width: 88%;
+      max-width: 360px;
       display: block;
       margin: 0 auto;
-      border-radius: 4px;
-      box-shadow: 6px 6px 24px rgba(0,0,0,0.3);
+      filter: drop-shadow(0 8px 32px rgba(30,10,80,0.45));
     }
 
+    /* ── Footer Nav ── */
     .footer-nav {
       background: #4a3a80;
       display: flex;
       justify-content: space-around;
-      padding: 14px 0 20px;
+      padding: 14px 0 22px;
       border-top: 1px solid rgba(255,255,255,0.15);
     }
 
@@ -246,7 +236,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       text-decoration: none;
       color: #e0d8f5;
       font-size: 11px;
@@ -259,6 +249,12 @@
       fill: #e0d8f5;
     }
 
+    .footer-nav a img.footer-icon {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+
     .footer-nav a:hover { color: #fff; }
     .footer-nav a:hover svg { fill: #fff; }
   </style>
@@ -266,6 +262,7 @@
 <body>
 <div class="container">
 
+  <!-- Hero -->
   <div class="hero">
     <p class="hero-sub">– 제 1회 –</p>
     <h1 class="hero-title">
@@ -278,43 +275,57 @@
     </div>
   </div>
 
+  <!-- Date Band -->
   <div class="date-band">
     <p class="date-line">6월 30일 (화) 오후 8시</p>
     <p class="date-line">신논현역 카페 앙트레블</p>
   </div>
 
+  <!-- 초대의 말 -->
   <div class="section">
     <p class="section-title">– 초대의 말 –</p>
-    <div class="invite-box">
-      <div class="invite-text">
-        <p>
-          피부를 이야기할때 우리는 흔히<br>
-          잡티, 주름, 탄력, 모공처럼 눈에 보이는<br>
-          고민을 먼저 떠올리고는 합니다.
-        </p>
-        <p>
-          하지만 실제로 사람들이 바라는것은<br>
-          그보다 더 입체적입니다.
-        </p>
-        <p>
-          작고 정돈된 얼굴<br>
-          우아한 인상<br>
-          건강하게 빛나는 피부
-        </p>
-        <p>
-          이번 피부콘서트를 통해<br>
-          피부를 바라보는 새로운 관점<br>
-          '작고 우아한 빛나는 얼굴'을 이야기합니다
-        </p>
-        <p>
-          피부텐텐 원장님들과 가까이에서<br>
-          이야기를 나누고, 나의 아름다움을 발견하는<br>
-          특별한 자리로 당신을 초대합니다.
-        </p>
-      </div>
+    <div class="invite-text">
+      <p>
+        지금 서울은 안티에이징의<br>
+        가장 뜨거운 중심지입니다.
+      </p>
+      <p>
+        K-뷰티가 세계의 기준이 된 지금
+      </p>
+      <p>
+        피부텐텐이 그 진짜 이야기를<br>
+        무대 위에서 들려드립니다.
+      </p>
+      <p>
+        진료실에서 수천 명의 얼굴을 마주하며,<br>
+        저희는 깨달았습니다.
+      </p>
+      <p>
+        결국 사람들이 바라는 것은<br>
+        세 가지로 모인다는 것을.
+      </p>
+      <p>
+        작은 얼굴, 우아한 인상, 건강하게 빛나는 피부.
+      </p>
+      <p>
+        저희는 이 세 가지를 줄여 '작·우·빛'이라 부릅니다.
+      </p>
+      <p>
+        피부텐텐 원장들이 전하는<br>
+        '작·우·빛'의 첫 번째 이야기,
+      </p>
+      <p>
+        그리고 신간 《작고 우아한 빛나는 얼굴 만들기》<br>
+        출간을 기념하며—
+      </p>
+      <p>
+        가장 나다운 빛을 찾아가는 하루에<br>
+        여러분을 초대합니다.
+      </p>
     </div>
   </div>
 
+  <!-- 타임 테이블 -->
   <div class="timetable-section">
     <p class="section-title">– 타임 테이블 –</p>
     <table class="timetable">
@@ -348,6 +359,7 @@
     </p>
   </div>
 
+  <!-- 오시는 길 -->
   <div class="map-section">
     <p class="section-title">– 오시는 길 –</p>
     <div class="map-wrapper">
@@ -378,22 +390,33 @@
     </div>
   </div>
 
+  <!-- 책 이미지 -->
   <div class="book-section">
     <img src="book.png" alt="작고 우아한 빛나는 얼굴 만들기" />
   </div>
 
+  <!-- Footer Nav -->
   <div class="footer-nav">
     <a href="https://maps.google.com/maps?q=서울특별시+강남구+강남대로102길+45" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
       오시는길
     </a>
-    <a href="https://pibutenten.com" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    <a href="https://www.youtube.com/@pibutenten" target="_blank">
+      <!-- pibutenten-icon.png 을 GitHub에 올려주시면 아래 img로 표시됩니다 -->
+      <img src="pibutenten-icon.png" class="footer-icon" alt="피부텐텐"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg viewBox="0 0 24 24" style="display:none">
+        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
       피부텐텐
     </a>
     <a href="https://pibutenten.kr/app" target="_blank">
-      <svg viewBox="0 0 24 24"><path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 20c-.83 0-1.5-.67-1.5-1.5S11.17 18 12 18s1.5.67 1.5 1.5S12.83 21 12 21zm5-4H7V4h10v13z"/></svg>
-      피부텐텐어플
+      <svg viewBox="0 0 24 24">
+        <path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 20c-.83 0-1.5-.67-1.5-1.5S11.17 18 12 18s1.5.67 1.5 1.5S12.83 21 12 21zm5-4H7V4h10v13z"/>
+      </svg>
+      피부텐텐 앱
     </a>
   </div>
 
