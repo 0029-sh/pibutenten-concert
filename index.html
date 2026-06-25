@@ -24,9 +24,6 @@
       overflow: hidden;
     }
 
-    /* ══════════════════════════
-       스크롤 페이드인
-    ══════════════════════════ */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -37,17 +34,16 @@
       transform: translateY(0);
     }
 
-    /* ══════════════════════════
-       Hero
-    ══════════════════════════ */
+    /* Hero */
     .hero {
-  background: url('here-bg.jpg') center/cover no-repeat;
-  padding: 40px 20px 0;
-  text-align: center;
-  min-height: 300px;
+      background: linear-gradient(160deg, #f8c8dc 0%, #e8b0f0 35%, #c0a0e8 65%, #a080d0 100%);
+      padding: 40px 20px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
     }
 
-    /* 콘페티 캔버스 */
     #confetti-canvas {
       position: absolute;
       top: 0; left: 0;
@@ -84,12 +80,6 @@
       margin-top: 10px;
       letter-spacing: 1px;
     }
-    .hero-powered {
-      font-size: 15px;
-      color: rgba(60, 20, 100, 0.6);
-      margin-top: 8px;
-      letter-spacing: 0.5px;
-    }
 
     .hero-doctors {
       margin-top: 28px;
@@ -97,9 +87,7 @@
       display: block;
     }
 
-    /* ══════════════════════════
-       Date Band
-    ══════════════════════════ */
+    /* Date Band */
     .date-band {
       background: #554281;
       color: #fff;
@@ -114,9 +102,7 @@
       letter-spacing: 1px;
     }
 
-    /* ══════════════════════════
-       공통 섹션
-    ══════════════════════════ */
+    /* 공통 섹션 */
     .section-purple {
       background: #554281;
       padding: 48px 28px;
@@ -143,9 +129,18 @@
       margin-bottom: 32px;
     }
 
-    /* ══════════════════════════
-       초대의 말
-    ══════════════════════════ */
+    /* Powered By 밴드 */
+    .powered-band {
+      background: #fff;
+      border-top: 1px solid #e8e0f4;
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #9080c0;
+      letter-spacing: 0.5px;
+    }
+
+    /* 초대의 말 */
     .invite-card {
       background: #faf8fe;
       border: 1px solid #e0d8f0;
@@ -176,9 +171,7 @@
     .invite-text p { margin-bottom: 16px; }
     .invite-text p:last-child { margin-bottom: 0; }
 
-    /* ══════════════════════════
-       타임 테이블
-    ══════════════════════════ */
+    /* 타임 테이블 */
     .timetable {
       width: 100%;
       border-collapse: collapse;
@@ -222,9 +215,7 @@
       line-height: 1.8;
     }
 
-    /* ══════════════════════════
-       오시는 길
-    ══════════════════════════ */
+    /* 오시는 길 */
     .map-wrapper {
       width: 100%;
       height: 210px;
@@ -263,9 +254,7 @@
       line-height: 2;
     }
 
-    /* ══════════════════════════
-       책 섹션
-    ══════════════════════════ */
+    /* 책 섹션 */
     .book-section {
       background: #554281;
       padding: 44px 24px 56px;
@@ -280,9 +269,7 @@
       filter: drop-shadow(0 10px 32px rgba(20,5,60,0.5));
     }
 
-    /* ══════════════════════════
-       Footer
-    ══════════════════════════ */
+    /* Footer */
     .footer-nav {
       background: #3d2f6a;
       display: flex;
@@ -328,7 +315,6 @@
         <span>피부콘서트</span>
       </h1>
       <p class="hero-subtitle">작고 우아한 빛나는 얼굴만들기</p>
-      <p class="hero-powered">powered by 힐로웨이브 • 비타란 • 고압산소 • 스킨수티컬즈</p>
       <img src="doctors.png" class="hero-doctors" alt="피부텐텐 원장님들" />
     </div>
   </div>
@@ -356,6 +342,11 @@
         <p>가장 나다운 빛을 찾아가는 하루에<br>여러분을 초대합니다.</p>
       </div>
     </div>
+  </div>
+
+  <!-- Powered By 밴드 -->
+  <div class="powered-band reveal">
+    powered by 힐로웨이브 • 비타란 • 고압산소 • 스킨수티컬즈
   </div>
 
   <!-- 타임 테이블 -->
@@ -454,7 +445,7 @@
 </div>
 
 <script>
-/* ── 콘페티 애니메이션 ── */
+/* 콘페티 애니메이션 */
 (function() {
   const canvas = document.getElementById('confetti-canvas');
   const hero   = canvas.parentElement;
@@ -482,7 +473,7 @@
       vy:    Math.random() * 2.5 + 1.2,
       vx:    (Math.random() - 0.5) * 1.2,
       alpha: 1,
-      delay: Math.random() * 80  /* frames */
+      delay: Math.random() * 80
     });
   }
 
@@ -493,21 +484,9 @@
 
     pieces.forEach(p => {
       if (frame < p.delay) return;
-
-      p.y     += p.vy;
-      p.x     += p.vx;
-      p.angle += p.spin;
-
-      if (p.y > canvas.height + 20) {
-        p.y     = -20;
-        p.x     = Math.random() * canvas.width;
-        p.alpha = 1;
-      }
-
-      if (p.y > canvas.height * 0.7) {
-        p.alpha = Math.max(0, p.alpha - 0.025);
-      }
-
+      p.y += p.vy; p.x += p.vx; p.angle += p.spin;
+      if (p.y > canvas.height + 20) { p.y = -20; p.x = Math.random() * canvas.width; p.alpha = 1; }
+      if (p.y > canvas.height * 0.7) p.alpha = Math.max(0, p.alpha - 0.025);
       ctx.save();
       ctx.globalAlpha = p.alpha;
       ctx.translate(p.x, p.y);
@@ -523,18 +502,14 @@
   window.addEventListener('resize', resize);
 })();
 
-/* ── 스크롤 페이드인 ── */
+/* 스크롤 페이드인 */
 (function() {
   const els = document.querySelectorAll('.reveal');
   const io  = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
   }, { threshold: 0.12 });
-
   els.forEach(el => io.observe(el));
 })();
 </script>
